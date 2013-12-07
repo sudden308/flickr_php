@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset='utf-8'/>
+<link href='./template/Template.css' rel='stylesheet' type='text/css'/>
+<title>Flickr Search</title>
+</head>
+<body>
+<script type='text/javascript'>
+function checkIt()
+{
+	if(document.getElementById('keyWords').value == '') {
+		alert('please input the key words for searching. Thanks.');
+		return false; 
+	}else {
+		return true; 
+	}
+}
+</script>
+
+<div>
+<form action='search_flickr.php' method='get' onsubmit='if(checkIt()){return true;}else{return false;}'>
+<input type='text' name='query' placeholder='Key Words' id='keyWords' class='input' autofocus/> 
+<input type='submit' value='Search From Flickr' class='btn' />
+</form>
+</div>
+<br/><br/>
+
+IF[IMAGE_FOREACH] {
+<table class='imageShow'>{!IMAGE_FOREACH!}</table>
+}
+
+IF[ERROR] {
+<div class='error'>{!ERROR!}</div>
+}
+</body>
+</html>
